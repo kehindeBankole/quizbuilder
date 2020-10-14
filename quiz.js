@@ -1,6 +1,6 @@
 console.log(document.getElementById("welcome"));
 let wins = 0;
-let clicks = 0
+let clicks = 0;
 setTimeout(() => {
   document.getElementById("welcome").style.transition = "0.5s";
   document.getElementById("welcome").style.opacity = "0";
@@ -11,9 +11,7 @@ setTimeout(() => {
 }, 2500);
 
 if (localStorage.getItem("user") == null) {
-
-  document.getElementById("submit").style.display="none"
-
+  document.getElementById("submit").style.display = "none";
 } else {
   console.log(localStorage.getItem("user"));
 
@@ -27,10 +25,10 @@ if (localStorage.getItem("user") == null) {
       <div class="col-sm-3">${element.question}</div>
       <div class="col-sm-9">
       <span>
-<button type="button" class="btn btn-primary option">${element.correct}</button>
-<button type="button" class="btn btn-secondary option">${element.wrong1}</button>
-<button type="button" class="btn btn-success option">${element.wrong2}</button>
-<button type="button" class="btn btn-success option">${element.wrong3}</button>
+<button type="button" class="btn button option">${element.correct}</button>
+<button type="button" class="btn button option">${element.wrong1}</button>
+<button type="button" class="btn button option">${element.wrong2}</button>
+<button type="button" class="btn button option">${element.wrong3}</button>
 </span>
       </div>
     </div>
@@ -42,7 +40,6 @@ if (localStorage.getItem("user") == null) {
   </div>
   </div>
   `;
-   
   });
 }
 
@@ -60,7 +57,6 @@ function nextquestion() {
 
   index++;
   card[index].classList.add("active");
-
 }
 function prevquestion() {
   let index;
@@ -69,10 +65,9 @@ function prevquestion() {
   card[index].classList.remove("active");
   index--;
   card[index].classList.add("active");
-  if(index==0){
-    prev[index].disabled = true
+  if (index == 0) {
+    prev[index].disabled = true;
   }
-
 }
 for (let x = 0; x < next.length; x++) {
   next[x].addEventListener("click", nextquestion);
@@ -83,18 +78,22 @@ for (let x = 0; x < prev.length; x++) {
 const button = document.getElementsByClassName("option");
 
 for (let x = 0; x < button.length; x++) {
-  button[x].addEventListener("click", ()=>{
+  button[x].addEventListener("click", () => {
     let index;
     const active = document.querySelector(".step.active");
     index = card.indexOf(active);
-   Array.from(button).forEach((elem , i)=>{
-   if(elem.classList.contains("click")){
-elem.classList.remove("click")
-   }else{
-     button[x].classList.add("click")
-   }
-   })
-  button[x].textContent==JSON.parse(localStorage.getItem("user"))[index].correct?alert("null"):null
+    Array.from(button).forEach((elem, i) => {
+      if (elem.classList.contains("click")) {
+        elem.classList.remove("click");
+        elem.classList.add("button");
+      } else {
+        button[x].classList.add("click");
+        button[x].classList.remove("button");
+      }
+    });
+    button[x].textContent ==
+    JSON.parse(localStorage.getItem("user"))[index].correct
+      ? alert("null")
+      : null;
   });
 }
-
