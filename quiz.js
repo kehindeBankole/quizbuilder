@@ -1,4 +1,3 @@
-console.log(document.getElementById("welcome"));
 let answers = [];
 let clicks = 0;
 setTimeout(() => {
@@ -13,8 +12,6 @@ setTimeout(() => {
 if (localStorage.getItem("user") == null) {
   document.getElementById("submit").style.display = "none";
 } else {
-  console.log(localStorage.getItem("user"));
-
   JSON.parse(localStorage.getItem("user")).forEach((element, i) => {
     document.getElementById("content").innerHTML += `
     <div class="container">
@@ -79,8 +76,8 @@ const button = document.getElementsByClassName("option");
 
 for (let x = 0; x < button.length; x++) {
   button[x].addEventListener("click", () => {
-    answers.push(answers.includes(button[x].value)?null:button[x].value)
-    console.log(answers)
+    answers.push(answers.includes(button[x].value) ? null : button[x].value);
+    console.log(answers);
     let index;
     const active = document.querySelector(".step.active");
     index = card.indexOf(active);
@@ -97,8 +94,15 @@ for (let x = 0; x < button.length; x++) {
     JSON.parse(localStorage.getItem("user"))[index].correct
       ? ""
       : null;
-     
   });
- 
 }
 
+const submit = document.getElementById("submit");
+submit.addEventListener("click", () => {
+ Array.from(JSON.parse(localStorage.getItem("user"))).forEach((elem)=>{
+   console.log(elem.correct)
+ })
+// answers.forEach((elem)=>console.log(elem))
+  JSON.parse(localStorage.getItem("user")).correct;
+  console.log();
+});
