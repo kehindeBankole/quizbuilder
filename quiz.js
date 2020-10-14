@@ -100,7 +100,7 @@ for (let x = 0; x < button.length; x++) {
 const submit = document.getElementById("submit");
 submit.addEventListener("click", () => {
  Array.from(JSON.parse(localStorage.getItem("user"))).forEach((elem)=>{
-   console.log(elem.correct)
+   console.log(answers.includes(elem.correct))
  })
 // answers.forEach((elem)=>console.log(elem))
   JSON.parse(localStorage.getItem("user")).correct;
