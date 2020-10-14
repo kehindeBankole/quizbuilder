@@ -1,5 +1,5 @@
 console.log(document.getElementById("welcome"));
-let wins = 0;
+let answers = [];
 let clicks = 0;
 setTimeout(() => {
   document.getElementById("welcome").style.transition = "0.5s";
@@ -25,10 +25,10 @@ if (localStorage.getItem("user") == null) {
       <div class="col-sm-3">${element.question}</div>
       <div class="col-sm-9">
       <span>
-<button type="button" class="btn button option">${element.correct}</button>
-<button type="button" class="btn button option">${element.wrong1}</button>
-<button type="button" class="btn button option">${element.wrong2}</button>
-<button type="button" class="btn button option">${element.wrong3}</button>
+<button type="button" class="btn button option" value=${element.correct}>${element.correct}</button>
+<button type="button" class="btn button option" value=${element.wrong1}>${element.wrong1}</button>
+<button type="button" class="btn button option" value=${element.wrong2}>${element.wrong2}</button>
+<button type="button" class="btn button option" value=${element.wrong3}>${element.wrong3}</button>
 </span>
       </div>
     </div>
@@ -79,6 +79,8 @@ const button = document.getElementsByClassName("option");
 
 for (let x = 0; x < button.length; x++) {
   button[x].addEventListener("click", () => {
+    answers.push(answers.includes(button[x].value)?null:button[x].value)
+    console.log(answers)
     let index;
     const active = document.querySelector(".step.active");
     index = card.indexOf(active);
@@ -93,7 +95,10 @@ for (let x = 0; x < button.length; x++) {
     });
     button[x].textContent ==
     JSON.parse(localStorage.getItem("user"))[index].correct
-      ? alert("null")
+      ? ""
       : null;
+     
   });
+ 
 }
+
