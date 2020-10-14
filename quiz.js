@@ -87,11 +87,14 @@ for (let x = 0; x < button.length; x++) {
     let index;
     const active = document.querySelector(".step.active");
     index = card.indexOf(active);
-   
-   // button.style.backgroundColor="black" ? button[x].style.backgroundColor="black" : button[x].style.backgroundColor="white"
-    button[x].textContent==JSON.parse(localStorage.getItem("user"))[index].correct?alert("null"):null
-  //  console.log(JSON.parse(localStorage.getItem("user"))[index])
-  //   console.log(button[x].textContent)
+   Array.from(button).forEach((elem , i)=>{
+   if(elem.classList.contains("click")){
+elem.classList.remove("click")
+   }else{
+     button[x].classList.add("click")
+   }
+   })
+  button[x].textContent==JSON.parse(localStorage.getItem("user"))[index].correct?alert("null"):null
   });
 }
 
