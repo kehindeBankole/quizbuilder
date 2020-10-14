@@ -5,7 +5,7 @@ h1 {
   left: 50%;
 }
 
-button.btn {
+button.btn , input.form-control{
   border-radius: 0;
 }
 .button {

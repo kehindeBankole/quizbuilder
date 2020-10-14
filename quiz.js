@@ -47,11 +47,10 @@ function nextquestion() {
   const active = document.querySelector(".step.active");
   index = card.indexOf(active);
   card[index].classList.remove("active");
-
   index++;
   card[index].classList.add("active");
-}
 
+}
 function prevquestion() {
   let index;
   const active = document.querySelector(".step.active");
@@ -101,6 +100,7 @@ submit.addEventListener("click", () => {
     fail.push(answers.includes(elem.correct))
   }
   })
-  console.log(`you got ${get.length} questions right`)
+  submit.style.display="none"
+  alert(`you got ${get.length} questions right out of ${ Array.from(JSON.parse(localStorage.getItem("user"))).length}`)
   console.log(fail)
 });
