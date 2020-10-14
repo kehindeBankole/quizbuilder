@@ -16,25 +16,22 @@ if (localStorage.getItem("user") == null) {
     document.getElementById("content").innerHTML += `
     <div class="container">
     <div class="card m-4  step">
-    <div class="card-body py-5">
-
-      <div class="row">
-      <div class="col-sm-3">${element.question}</div>
-      <div class="col-sm-9">
-      <span>
-<button type="button" class="btn button option" value=${element.correct}>${element.correct}</button>
-<button type="button" class="btn button option" value=${element.wrong1}>${element.wrong1}</button>
-<button type="button" class="btn button option" value=${element.wrong2}>${element.wrong2}</button>
-<button type="button" class="btn button option" value=${element.wrong3}>${element.wrong3}</button>
-</span>
+      <div class="card-body py-5">
+        <div class="row">
+          <div class="col-sm-3">${element.question}</div>
+          <div class="col-sm-9">
+            <span>
+              <button type="button" class="btn button option" value=${element.correct}>${element.correct}</button>
+              <button type="button" class="btn button option" value=${element.wrong1}>${element.wrong1}</button>
+              <button type="button" class="btn button option" value=${element.wrong2}>${element.wrong2}</button>
+              <button type="button" class="btn button option" value=${element.wrong3}>${element.wrong3}</button>
+            </span>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success mt-5 btn-block next">next</button>
+        <button type="button" class="btn btn-primary mt-5 btn-block prev">prev</button>
       </div>
     </div>
-
-<button type="button" class="btn btn-success mt-5 btn-block next">next</button>
-
-<button type="button" class="btn btn-primary mt-5 btn-block prev">prev</button>
-    </div>
-  </div>
   </div>
   `;
   });
@@ -43,7 +40,6 @@ if (localStorage.getItem("user") == null) {
 const card = Array.from(document.getElementsByClassName("step"));
 const next = document.getElementsByClassName("next");
 const prev = document.getElementsByClassName("prev");
-console.log(card);
 card[0].classList.add("active");
 
 function nextquestion() {
@@ -55,6 +51,7 @@ function nextquestion() {
   index++;
   card[index].classList.add("active");
 }
+
 function prevquestion() {
   let index;
   const active = document.querySelector(".step.active");
@@ -90,19 +87,20 @@ for (let x = 0; x < button.length; x++) {
         button[x].classList.remove("button");
       }
     });
-    button[x].textContent ==
-    JSON.parse(localStorage.getItem("user"))[index].correct
-      ? ""
-      : null;
   });
 }
 
 const submit = document.getElementById("submit");
+let get=[]
+let fail=[]
 submit.addEventListener("click", () => {
- Array.from(JSON.parse(localStorage.getItem("user"))).forEach((elem)=>{
-   console.log(answers.includes(elem.correct))
- })
-// answers.forEach((elem)=>console.log(elem))
-  JSON.parse(localStorage.getItem("user")).correct;
-  console.log();
+  Array.from(JSON.parse(localStorage.getItem("user"))).forEach((elem) => {
+  if(answers.includes(elem.correct)==true){
+    get.push(answers.includes(elem.correct))
+  }else{
+    fail.push(answers.includes(elem.correct))
+  }
+  })
+  console.log(`you got ${get.length} questions right`)
+  console.log(fail)
 });
