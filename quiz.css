@@ -1,0 +1,35 @@
+h1{
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top:50%;
+    left: 50%;
+}
+/* .main{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50% , -50%);
+} */
+button.btn{
+    border-radius: 0;
+}
+#content{
+    opacity: 0;
+}
+.step{
+    display: none;
+
+}
+.active{
+    display: block;
+}
+/* .btn{
+    display: block;
+} */
+#submit{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50% , -50%);
+    /* width: 100%; */
+}
