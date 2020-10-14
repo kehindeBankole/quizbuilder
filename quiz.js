@@ -27,10 +27,10 @@ if (localStorage.getItem("user") == null) {
       <div class="col-sm-3">${element.question}</div>
       <div class="col-sm-9">
       <span>
-<button type="button" class="btn btn-primary">${element.correct}</button>
-<button type="button" class="btn btn-secondary">${element.wrong1}</button>
-<button type="button" class="btn btn-success">${element.wrong2}</button>
-<button type="button" class="btn btn-success">${element.wrong3}</button>
+<button type="button" class="btn btn-primary option">${element.correct}</button>
+<button type="button" class="btn btn-secondary option">${element.wrong1}</button>
+<button type="button" class="btn btn-success option">${element.wrong2}</button>
+<button type="button" class="btn btn-success option">${element.wrong3}</button>
 </span>
       </div>
     </div>
@@ -80,15 +80,18 @@ for (let x = 0; x < next.length; x++) {
 for (let x = 0; x < prev.length; x++) {
   prev[x].addEventListener("click", prevquestion);
 }
-const button = document.getElementsByClassName("btn");
+const button = document.getElementsByClassName("option");
 
 for (let x = 0; x < button.length; x++) {
   button[x].addEventListener("click", ()=>{
     let index;
     const active = document.querySelector(".step.active");
     index = card.indexOf(active);
-    console.log(JSON.parse(localStorage.getItem("user"))[index])
-    // console.log(JSON.parse(localStorage.getItem("user"))[x])
+   
+   // button.style.backgroundColor="black" ? button[x].style.backgroundColor="black" : button[x].style.backgroundColor="white"
+    button[x].textContent==JSON.parse(localStorage.getItem("user"))[index].correct?alert("null"):null
+  //  console.log(JSON.parse(localStorage.getItem("user"))[index])
+  //   console.log(button[x].textContent)
   });
 }
 
