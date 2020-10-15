@@ -1,5 +1,6 @@
 let answers = [];
 let clicks = 0;
+let options = [];
 setTimeout(() => {
   document.getElementById("welcome").style.transition = "0.5s";
   document.getElementById("welcome").style.opacity = "0";
@@ -49,7 +50,6 @@ function nextquestion() {
   card[index].classList.remove("active");
   index++;
   card[index].classList.add("active");
-
 }
 function prevquestion() {
   let index;
@@ -90,17 +90,35 @@ for (let x = 0; x < button.length; x++) {
 }
 
 const submit = document.getElementById("submit");
-let get=[]
-let fail=[]
+let get = [];
+let fail = [];
 submit.addEventListener("click", () => {
   Array.from(JSON.parse(localStorage.getItem("user"))).forEach((elem) => {
-  if(answers.includes(elem.correct)==true){
-    get.push(answers.includes(elem.correct))
-  }else{
-    fail.push(answers.includes(elem.correct))
-  }
-  })
-  submit.style.display="none"
-  alert(`you got ${get.length} questions right out of ${ Array.from(JSON.parse(localStorage.getItem("user"))).length}`)
-  console.log(fail)
+    if (answers.includes(elem.correct) == true) {
+      get.push(answers.includes(elem.correct));
+    } else {
+      fail.push(answers.includes(elem.correct));
+    }
+  });
+  submit.style.display = "none";
+  alert(
+    `you got ${get.length} questions right out of ${
+      Array.from(JSON.parse(localStorage.getItem("user"))).length
+    }`
+  );
+  console.log(fail);
+  console.log(options);
 });
+
+let time  = localStorage.getItem("time")
+
+if (localStorage.getItem("time") != null) {
+  time = localStorage.getItem("time");
+}else{
+  time = 20
+}
+setTimeout(() => {
+
+  console.log(time)
+} , time * 60 * 1000);
+

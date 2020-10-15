@@ -32,3 +32,6 @@ button.btn , input.form-control{
   background-color: black;
   color: white;
 }
+.modal{
+  display: block;
+}

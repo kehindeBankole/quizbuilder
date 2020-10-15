@@ -16,7 +16,7 @@
     <nav class="navbar navbar-light bg-light">
       <h1><a class="navbar-brand ml-5" href="index.html">KUIZARAIYU</a></h1>
       <ul class="navbar-nav navbar-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <input type="color" id="color" />
           <button onclick="color()" class="btn btn-sm btn-success">color</button>
         </li>
@@ -26,6 +26,15 @@
   </header>
   <div class="container mt-3">
     <h3>you have <span id="number">0</span> question(s) added</h3>
+    <div class="form-group col-md-4">
+      <label for="inputState">quiz duration</label>
+      <select id="inputState" class="form-control">
+        <option value="20">20mins</option>
+        <option value="40">40min</option>
+        <option value="60">60mins</option>
+      </select>
+      <button onclick="gettime()">click</button>
+    </div>
   </div>
 
   <div class="container mt-5">
@@ -62,6 +71,7 @@
   </div>
 </body>
 <script src="indes.js" defer></script>
+<!-- <script src="quiz.js" defer></script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

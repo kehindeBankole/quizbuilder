@@ -25,7 +25,7 @@ function add() {
       correct: correct.value,
       wrong1: wrong1.value,
       wrong2: wrong2.value,
-      wrong3: wrong3.value,
+      wrong3: wrong3.value
     });
     document.getElementById("number").textContent = questions.length;
     questions.length == Number(length.value) ? document.getElementById("start").style.display = "block" : null
@@ -40,4 +40,9 @@ const colorselected = document.getElementById("color");
 function color() {
   localStorage.setItem("color", colorselected.value);
   document.body.style.backgroundColor = `${localStorage.getItem("color")}`
+}
+
+function gettime() {
+  var x = document.getElementById("inputState").value;
+localStorage.setItem("time" , x)
 }
