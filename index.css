@@ -8,3 +8,6 @@ button.btn , input.form-control{
 a:hover{
     text-decoration: none;
 }
+*{
+    font-family: 'Sansita Swashed', cursive;
+}

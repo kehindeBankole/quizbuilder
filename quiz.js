@@ -1,7 +1,7 @@
 let answers = [];
 let clicks = 0;
 let options = [];
-
+document.body.style.backgroundColor=localStorage.getItem("color")
 setTimeout(() => {
   document.getElementById("welcome").style.transition = "0.5s";
   document.getElementById("welcome").style.opacity = "0";
@@ -71,13 +71,10 @@ for (let x = 0; x < prev.length; x++) {
 }
 const button = document.getElementsByClassName("option");
 
-for (let x = 0; x < button.length; x++) {
+for (let x = 0; x < button.length; ++x) {
   button[x].addEventListener("click", () => {
+    console.log([x])
     answers.push(answers.includes(button[x].value) ? null : button[x].value);
-    console.log(answers);
-    let index;
-    const active = document.querySelector(".step.active");
-    index = card.indexOf(active);
     Array.from(button).forEach((elem, i) => {
       if (elem.classList.contains("click")) {
         elem.classList.remove("click");
