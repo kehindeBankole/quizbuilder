@@ -45,4 +45,5 @@ function color() {
 function gettime() {
   var x = document.getElementById("inputState").value;
 localStorage.setItem("time" , x)
+alert("time has been set")
 }

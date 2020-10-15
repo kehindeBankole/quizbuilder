@@ -1,6 +1,7 @@
 let answers = [];
 let clicks = 0;
 let options = [];
+
 setTimeout(() => {
   document.getElementById("welcome").style.transition = "0.5s";
   document.getElementById("welcome").style.opacity = "0";
@@ -101,24 +102,28 @@ submit.addEventListener("click", () => {
     }
   });
   submit.style.display = "none";
-  alert(
-    `you got ${get.length} questions right out of ${
-      Array.from(JSON.parse(localStorage.getItem("user"))).length
-    }`
-  );
-  console.log(fail);
-  console.log(options);
+  var modal = document.getElementById("myModal");
+  document.getElementById("status").textContent = `you got ${
+    get.length
+  } questions right out of ${
+    Array.from(JSON.parse(localStorage.getItem("user"))).length
+  }`;
+  modal.style.display = "block";
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 3000);
 });
 
-let time  = localStorage.getItem("time")
-
+let time;
 if (localStorage.getItem("time") != null) {
   time = localStorage.getItem("time");
-}else{
-  time = 20
+} else {
+  time = 20;
 }
+document.getElementById("item").textContent=`you have ${time} mins for the quiz`
 setTimeout(() => {
-
-  console.log(time)
-} , time * 60 * 1000);
-
+  console.log(time);
+}, time * 60 * 1000);
+function playagain(){
+  window.location.reload()
+}
