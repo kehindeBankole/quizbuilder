@@ -36,6 +36,7 @@ if (localStorage.getItem("user") == null) {
     </div>
   </div>
   `;
+  
   });
 }
 

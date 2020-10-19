@@ -30,10 +30,14 @@ function add() {
     document.getElementById("number").textContent = questions.length;
     questions.length == Number(length.value) ? document.getElementById("start").style.display = "block" : null
     length.disabled = true;
-    localStorage.setItem("user", JSON.stringify(questions));
+    localStorage.setItem("user",questions);
+ 
   }
+
   return;
+
 }
+console.log(JSON.parse(localStorage.getItem("user")).sort(()=>Math.random()))
 
 const colorselected = document.getElementById("color");
 
